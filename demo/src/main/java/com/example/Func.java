@@ -7,15 +7,15 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Func {
-    static void createfile(Scanner input){
+    static void createfile(){
+        Scanner input = new Scanner(System.in);
         try{
             System.out.println("Input file path, name and extension: ");
-            String filepath;
-            filepath = input.nextLine();
+            String filepath = input.nextLine();
 
             File file = new File(filepath);
 
-            if(file.createNewFile()){
+            if(file.createNewFile() == true){
                 System.out.println("File created: "+file.getName());
             }else{
                 System.out.println("File already exists");
@@ -24,9 +24,11 @@ public class Func {
             System.out.println("Exception IO Error");
             error.printStackTrace();
         }
+        input.close();
     }
 
-    static void writefile(Scanner input){
+    static void writefile(){
+        Scanner input = new Scanner(System.in);
         try{	
             System.out.println("Input file path, name and extension of the file you want to write in: ");
             String filepath = input.nextLine();
@@ -39,9 +41,11 @@ public class Func {
             System.out.println("Exception IO Error");
             error.printStackTrace();
         }
+        input.close();
     }
     
-    static void readfile(Scanner input){
+    static void readfile(){
+        Scanner input = new Scanner(System.in);
         try{
             System.out.println("Input file path, name and extension of the file you want to read: ");
             String filepath = input.nextLine();
@@ -59,9 +63,11 @@ public class Func {
             System.out.println("Exception IO Error");
             error.printStackTrace();
         }
+        input.close();
     }
     
-    static void fileinfo(Scanner input){ 
+    static void fileinfo(){
+        Scanner input = new Scanner(System.in); 
         System.out.println("Input file path, name and extension of the file you want to inspect: ");
         String filepath = input.nextLine();
         
@@ -71,9 +77,11 @@ public class Func {
         }else{
             System.out.println("File doesn't exist");
         }
+        input.close();
     }
     
-    static void createdir(Scanner input){
+    static void createdir(){
+        Scanner input = new Scanner(System.in);
         System.out.println("Input path of the directory you want to create: ");
         String dirpath = input.nextLine();
         File dir = new File(dirpath);
@@ -82,9 +90,11 @@ public class Func {
         }else{
             System.out.println("An error occured while creating directory");
         }
+        input.close();
     }
     
-    static void deletefile(Scanner input){
+    static void deletefile(){
+        Scanner input = new Scanner(System.in);
         System.out.println("Input the path of the file you want to delete: ");
         String filepath = input.nextLine();
         File file = new File(filepath);
@@ -93,9 +103,11 @@ public class Func {
         }else{
             System.out.println("Couldn't delete file");
         }
+        input.close();
     }
     
-    static void deletedirectory(Scanner input){
+    static void deletedirectory(){
+        Scanner input = new Scanner(System.in);
         System.out.println("Input path of the directory you want to delete: ");
         String dirpath = input.nextLine();
         File dir = new File(dirpath);
@@ -104,5 +116,6 @@ public class Func {
         }else{
             System.out.println("Couldn't delete directory");
         }
+        input.close();
     }
 }
